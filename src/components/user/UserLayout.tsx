@@ -38,7 +38,7 @@ export default function UserLayout({ children }: UserLayoutProps) {
         {/* Sidebar */}
         <div className="w-64 bg-white shadow-lg">
           <div className="h-16 flex items-center px-6 border-b">
-            <h1 className="text-xl font-bold text-gray-800">Student Portal</h1>
+            <h1 className="text-xl font-bold text-gray-800">Employee Portal</h1>
           </div>
           <nav className="mt-6">
             <Link
