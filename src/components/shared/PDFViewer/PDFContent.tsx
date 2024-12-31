@@ -1,16 +1,15 @@
 import React from 'react';
-import { Document, Page, pdfjs } from 'react-pdf';
+import { Document, Page } from 'react-pdf';
 import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import LoadingSpinner from '../LoadingSpinner';
-
-pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 interface PDFContentProps {
   pdfUrl: string;
   pageNumber: number;
   rotation: number;
-  onDocumentLoadSuccess: (numPages: number) => void;
+  onDocumentLoadSuccess: ({ numPages }: { numPages: number }) => void;
   onDocumentLoadError: (error: Error) => void;
+  scale: number;
 }
 
 export default function PDFContent({
@@ -19,30 +18,67 @@ export default function PDFContent({
   rotation,
   onDocumentLoadSuccess,
   onDocumentLoadError,
+  scale,
 }: PDFContentProps) {
   return (
-    <div className="min-h-full w-full flex justify-center p-4 bg-gray-100">
+    <div className="h-full w-full overflow-auto">
       <Document
         file={pdfUrl}
-        onLoadSuccess={({ numPages }) => onDocumentLoadSuccess(numPages)}
+        onLoadSuccess={onDocumentLoadSuccess}
         onLoadError={onDocumentLoadError}
-        className="min-h-full w-full flex justify-center p-4"
+        loading={<LoadingSpinner />}
+        className="flex flex-col items-center p-4"
       >
         <TransformWrapper
-          initialScale={1}
+          initialScale={scale}
           minScale={0.5}
           maxScale={3}
           centerOnInit={true}
+          panning={{ 
+            activationKeys: ["Space"],
+            lockAxisY: false
+          }}
+          wheel={{ step: 0.1 }}
         >
-          <TransformComponent>
-            <Page
-              key={`page_${pageNumber}_${rotation}`}
-              pageNumber={pageNumber}
-              rotate={rotation}
-              renderTextLayer={false} // For performance optimization
-              renderAnnotationLayer={false} // For performance optimization
-            />
-          </TransformComponent>
+          {({ zoomIn, zoomOut }) => (
+            <>
+              <style>
+                {`
+                  .react-transform-wrapper {
+                    cursor: default !important;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                  }
+                  .react-transform-wrapper.grabbed,
+                  .react-transform-wrapper:active {
+                    cursor: grabbing !important;
+                  }
+                  .react-transform-component {
+                    width: auto !important;
+                  }
+                `}
+              </style>
+              <TransformComponent
+                wrapperClass="react-transform-wrapper"
+                contentClass="react-transform-content"
+              >
+                <div className="relative">
+                  <Page
+                    key={`page_${pageNumber}_${rotation}_${scale}`}
+                    pageNumber={pageNumber}
+                    rotate={rotation}
+                    className="shadow-lg bg-white"
+                    renderTextLayer={false}
+                    renderAnnotationLayer={false}
+                    loading={<LoadingSpinner />}
+                    scale={scale}
+                  />
+                  <div className="absolute inset-0 pointer-events-none select-none" />
+                </div>
+              </TransformComponent>
+            </>
+          )}
         </TransformWrapper>
       </Document>
     </div>

@@ -47,29 +47,31 @@ export default function QuillEditor({ value, onChange, readOnly = false }: Quill
         readOnly={readOnly}
         className="flex-1 flex flex-col"
       />
-      <style jsx global>{`
-        .quill {
-          display: flex;
-          flex-direction: column;
-          height: 100%;
-        }
-        .ql-container {
-          flex: 1;
-          overflow: auto;
-        }
-        .ql-editor {
-          min-height: 100%;
-          height: 100%;
-        }
-        .ql-toolbar {
-          border-top: none !important;
-          border-left: none !important;
-          border-right: none !important;
-        }
-        .ql-container {
-          border: none !important;
-        }
-      `}</style>
+      <style>
+        {`
+          .quill {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+          }
+          .ql-container {
+            flex: 1;
+            overflow: auto;
+          }
+          .ql-editor {
+            min-height: 100%;
+            height: 100%;
+          }
+          .ql-toolbar {
+            border-top: none !important;
+            border-left: none !important;
+            border-right: none !important;
+          }
+          .ql-container {
+            border: none !important;
+          }
+        `}
+      </style>
     </div>
   );
 }
