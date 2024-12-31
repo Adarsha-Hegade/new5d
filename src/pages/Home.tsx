@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { LogIn, ArrowRight, Database, ClipboardCheck, FileSpreadsheet, Tags, Building2, Users, Globe, Award } from 'lucide-react';
 import Layout from '../components/layout/Layout';
+import WhyChooseUs from '../components/about/WhyChooseUs';
+import AboutValues from '../components/about/AboutValues';
 
 export default function Home() {
   const stats = [
@@ -97,7 +99,7 @@ export default function Home() {
             </Link>
             <a
               href="#about"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-gray-50 hover:bg-gray-100"
             >
               Learn More
               <ArrowRight className="ml-2 h-5 w-5" />
@@ -107,16 +109,19 @@ export default function Home() {
       </div>
 
       {/* About Section */}
-      <div id="about" className="bg-white py-24">
+      <div id="about" className="bg-gray-50 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
+          {/* <div className="text-center">
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Who We Are</h2>
             <p className="mt-4 text-xl text-gray-500 max-w-3xl mx-auto">
               At Structura DataWorks, we believe that well-structured data is the foundation of success. 
               Founded by data enthusiasts and problem solvers, we aim to help businesses unlock the true 
               potential of their information.
             </p>
-          </div>
+          </div> */}
+
+         
+                 <WhyChooseUs />
 
           {/* Stats */}
           <div className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -132,7 +137,7 @@ export default function Home() {
       </div>
 
       {/* Services Section */}
-      <div id="services" className="bg-white py-24">
+      <div id="services" className="bg-gray-50 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">What We Do</h2>
@@ -143,7 +148,7 @@ export default function Home() {
 
           <div className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((service) => (
-              <div key={service.title} className="relative bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
+              <div key={service.title} className="relative bg-gray-50 p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
                 <div className="w-12 h-12 rounded-md bg-blue-600 flex items-center justify-center">
                   <service.icon className="h-6 w-6 text-white" />
                 </div>
@@ -154,7 +159,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-
+      <AboutValues />
       {/* Industries Section */}
       <div className="bg-gray-50 py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -167,7 +172,7 @@ export default function Home() {
 
           <div className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {industries.map((industry) => (
-              <div key={industry.name} className="group relative bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200">
+              <div key={industry.name} className="group relative bg-gray-50 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200">
                 <div className="h-48 w-full overflow-hidden">
                   <img
                     src={industry.image}
@@ -199,7 +204,7 @@ export default function Home() {
           <div className="mt-8 lg:mt-0 flex flex-col sm:flex-row gap-4">
             <Link
               to="/contact"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-white hover:bg-blue-50"
+              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-700 bg-gray-50 hover:bg-blue-50"
             >
               Contact Us
             </Link>
