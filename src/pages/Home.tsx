@@ -15,32 +15,56 @@ export default function Home() {
     {
       icon: Database,
       title: "Data Cataloging",
-      description: "Organizing your data for easy access and usability."
+      description: "Comprehensive organization and structuring of your data assets with advanced metadata management and intelligent tagging systems."
     },
     {
       icon: ClipboardCheck,
       title: "Data Cleaning",
-      description: "Eliminating errors and redundancies for accuracy."
+      description: "Advanced data validation, deduplication, and standardization using AI-powered tools to ensure highest data quality standards."
     },
     {
       icon: FileSpreadsheet,
       title: "Data Formatting",
-      description: "Customizing data for seamless integration."
+      description: "Custom data transformation and formatting solutions with support for multiple industry standards and enterprise systems."
     },
     {
       icon: Tags,
       title: "Data Marking",
-      description: "Adding tags and markers for better clarity."
+      description: "Intelligent data classification and tagging system with automated metadata generation and advanced search capabilities."
     }
   ];
 
   const industries = [
-    { name: 'E-commerce', description: 'Streamline product catalogs and inventory data.' },
-    { name: 'Healthcare', description: 'Organize patient records and research data securely.' },
-    { name: 'Finance', description: 'Clean and format financial data for audits.' },
-    { name: 'Manufacturing', description: 'Structure operational data for enhanced workflows.' },
-    { name: 'Retail', description: 'Optimize inventory and sales data management.' },
-    { name: 'Logistics', description: 'Keep tracking data clear and accessible.' },
+    { 
+      name: 'E-commerce',
+      description: 'Streamline product catalogs and inventory data.',
+      image: 'https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&q=80'
+    },
+    {
+      name: 'Healthcare',
+      description: 'Organize patient records and research data securely.',
+      image: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?auto=format&fit=crop&q=80'
+    },
+    {
+      name: 'Finance',
+      description: 'Clean and format financial data for audits.',
+      image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80'
+    },
+    {
+      name: 'Manufacturing',
+      description: 'Structure operational data for enhanced workflows.',
+      image: 'https://images.unsplash.com/photo-1565465295423-68c959fbd6e2?auto=format&fit=crop&q=80'
+    },
+    {
+      name: 'Retail',
+      description: 'Optimize inventory and sales data management.',
+      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80'
+    },
+    {
+      name: 'Logistics',
+      description: 'Keep tracking data clear and accessible.',
+      image: 'https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&q=80'
+    },
   ];
 
   return (
@@ -97,26 +121,12 @@ export default function Home() {
           {/* Stats */}
           <div className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((stat) => (
-              <div key={stat.label} className="bg-blue-50 p-6 rounded-lg">
+              <div key={stat.label} className="bg-blue-50 p-6 rounded-lg transform hover:scale-105 transition-transform duration-200">
                 <stat.icon className="h-8 w-8 text-blue-600" />
                 <p className="mt-4 text-3xl font-extrabold text-blue-600">{stat.value}</p>
                 <p className="text-sm font-medium text-gray-500">{stat.label}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Mission Section */}
-      <div className="bg-blue-700 py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-extrabold text-white sm:text-4xl">Our Mission</h2>
-            <p className="mt-4 text-xl text-blue-100 max-w-3xl mx-auto">
-              To provide businesses with clean, structured, and actionable data, enabling them to focus 
-              on what they do best. We envision being the global leader in data management, empowering 
-              businesses of all sizes with innovative and reliable data solutions.
-            </p>
           </div>
         </div>
       </div>
@@ -127,13 +137,13 @@ export default function Home() {
           <div className="text-center">
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">What We Do</h2>
             <p className="mt-4 text-xl text-gray-500">
-              At Structura DataWorks, we specialize in transforming your raw data into valuable business assets.
+              Transform your raw data into valuable business assets with our comprehensive suite of services.
             </p>
           </div>
 
           <div className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {services.map((service) => (
-              <div key={service.title} className="relative bg-white p-6 rounded-lg shadow-lg">
+              <div key={service.title} className="relative bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200">
                 <div className="w-12 h-12 rounded-md bg-blue-600 flex items-center justify-center">
                   <service.icon className="h-6 w-6 text-white" />
                 </div>
@@ -157,9 +167,18 @@ export default function Home() {
 
           <div className="mt-20 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {industries.map((industry) => (
-              <div key={industry.name} className="bg-white p-6 rounded-lg shadow-lg">
-                <h3 className="text-lg font-medium text-gray-900">{industry.name}</h3>
-                <p className="mt-2 text-base text-gray-500">{industry.description}</p>
+              <div key={industry.name} className="group relative bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-200">
+                <div className="h-48 w-full overflow-hidden">
+                  <img
+                    src={industry.image}
+                    alt={industry.name}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-200"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-lg font-medium text-gray-900">{industry.name}</h3>
+                  <p className="mt-2 text-base text-gray-500">{industry.description}</p>
+                </div>
               </div>
             ))}
           </div>
