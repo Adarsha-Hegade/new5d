@@ -26,12 +26,12 @@ export default function Header() {
         <div className="flex justify-between items-center px-4 sm:px-6 lg:px-8 h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <Database className="h-8 w-8 text-blue-600" />
-            <div>
-              <span className="text-xl font-bold text-gray-900 block leading-none">Structura</span>
-              <span className="text-sm text-blue-600 font-medium">DataWorks</span>
-            </div>
-          </Link>
+  <img src="/logo.png" alt=" Structura DataWorks Logo" className="h-8 w-8" />
+  <div>
+    <span className="text-xl font-bold text-gray-900 block leading-none">Structura</span>
+    <span className="text-sm text-blue-600 font-medium">DataWorks</span>
+  </div>
+</Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
