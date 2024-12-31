@@ -10,10 +10,10 @@ export default function UserLogin() {
           <UserCircle className="w-12 h-12 text-blue-600" />
         </div>
         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Student Login
+          Employee Portal
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          Access your assignments and submissions
+          Access your data entry dashboard
         </p>
       </div>
 
