@@ -53,7 +53,7 @@ export default function Home() {
     {
       name: 'Manufacturing',
       description: 'Structure operational data for enhanced workflows.',
-      image: 'https://images.unsplash.com/photo-1565465295423-68c959fbd6e2?auto=format&fit=crop&q=80'
+      image: 'https://images.unsplash.com/photo-1717386255773-1e3037c81788?auto=format&fit=crop&q=80'
     },
     {
       name: 'Retail',
